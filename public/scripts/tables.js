@@ -36,7 +36,7 @@ const loadCustomers = (apiURL, tableId) => {
 const clearCustomers = () => {
     alert(`WARNING: You are about to DELETE all customers (tables / waitlist)`);
 
-    fetch(`http://localhost:8080/api/clear`, { method: 'POST' })
+    fetch(`/api/clear`, { method: 'POST' })
         .then(response => response.json())
         .then(() => {
             const customerTableList = document.getElementById("tableList");

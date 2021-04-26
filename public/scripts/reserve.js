@@ -12,21 +12,21 @@ btnSubmit.addEventListener("click", (event) => {
 
     console.log(`Creating reservation for ${customerInfo.name}`)
 
-    fetch(`http://localhost:8080/api/tables`,{
+    fetch(`/api/tables`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(customerInfo)
     })
-    .then(response => response.json()) 
-    .then(data => {
-        const message = data ? `Your reservation for ${customerInfo.name} is confirmated!!` 
-        : `${customerInfo.name} is on the waiting list!!`
-        
-        alert(message)
+        .then(response => response.json())
+        .then(data => {
+            const message = data ? `Your reservation for ${customerInfo.name} is confirmated!!`
+                : `${customerInfo.name} is on the waiting list!!`
 
-        location.href = '/tables';
-    })
-    .catch(err => console.error(err));
+            alert(message)
+
+            location.href = '/tables';
+        })
+        .catch(err => console.error(err));
 })
